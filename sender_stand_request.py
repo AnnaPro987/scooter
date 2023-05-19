@@ -11,13 +11,13 @@ print(response.json())
 
 def get_new_track():
     response = post_new_orders(data.orders_body)
-    track = response.json()['track']
-    current_new_track = track
+    t = response.json()['track']
+    current_new_track = t
     return current_new_track
 print(response.status_code)
 print(response.json()['track'])
 def get_new_orders_track():
-    t = {'track': get_new_track()}
+    t = {'t': get_new_track()}
     return requests.get(configuration.URL_SERVICE + configuration.ORDERS_TRACK_PATH, params=t)
 response = get_new_orders_track()
 print(response.status_code)
